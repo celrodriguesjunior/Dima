@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dima.Core.Requests;
 
-public class PagedRequest : Request
+public abstract class PagedRequest : Request
 {
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 25;
+    public int PageNumber { get; set; } = Configuration.DefaultPageNumber;
+    public int PageSize { get; set; } = Configuration.DefaultPageSize;
 
 }
