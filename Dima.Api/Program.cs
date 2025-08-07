@@ -33,12 +33,12 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapPost(
-    pattern: "/v1/categories",
-    handler: (Request request, Handler handler) => handler.Handle(request))
-    .WithName("Categories: Create")
-    .WithSummary("Cria uma nova categoria")
-    .Produces<Response>();
+//app.MapPost(
+//    pattern: "/v1/categories",
+//    handler: (Request request, Handler handler) => handler.Handle(request))
+//    .WithName("Categories: Create")
+//    .WithSummary("Cria uma nova categoria")
+//    .Produces<Response>();
 
 app.UseHttpsRedirection();
 
@@ -49,36 +49,36 @@ app.MapControllers();
 app.Run();
 
 
-public class Request
-{
-    public string Title { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-}
+//public class Request
+//{
+//    public string Title { get; set; } = string.Empty;
+//    public string Description { get; set; } = string.Empty;
+//}
 
-public class Response
-{
-    public long Id { get; set; }
-    public string Title { get; set; }
-}
+//public class Response
+//{
+//    public long Id { get; set; }
+//    public string Title { get; set; }
+//}
 
-public class Handler(AppDbContext context)
-{
-    public Response Handle(Request request)
-    {
+//public class Handler(AppDbContext context)
+//{
+//    public Response Handle(Request request)
+//    {
 
-        // Faz todo o processo de criação
-        // Persiste no banco...
+//        // Faz todo o processo de criação
+//        // Persiste no banco...
 
-        var category = new Category
-        {
-            Title = request.Title,
-            Description = request.Description,
-        };
+//        var category = new Category
+//        {
+//            Title = request.Title,
+//            Description = request.Description,
+//        };
 
-        context.Categories.Add(category);
-        context.SaveChanges();
+//        context.Categories.Add(category);
+//        context.SaveChanges();
 
-        return new Response { Id = category.Id, Title = category.Title };
+//        return new Response { Id = category.Id, Title = category.Title };
 
-    }
-}
+//    }
+//}
