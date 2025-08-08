@@ -1,8 +1,6 @@
 using Dima.Api.Data;
-using Dima.Core.Enums;
-using Dima.Core.Models;
-using Dima.Core.Requests.Categories;
-using Dima.Core.Responses;
+using Dima.Api.Handlers;
+using Dima.Core.Handlers;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -19,7 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(x => { x.CustomSchemaIds(n => n.FullName); });
-builder.Services.AddTransient<Handler>();
+//builder.Services.AddTransient<Handler>();
+builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -35,12 +34,12 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapPost(
-    pattern: "/v1/categories",
-    handler: (CreateCategoryRequest request, Handler handler) => handler.Handle(request))
-    .WithName("Categories: Create")
-    .WithSummary("Cria uma nova categoria")
-    .Produces<Response<Category>>();
+//app.MapPost(
+//    pattern: "/v1/categories",
+//    handler: (CreateCategoryRequest request, Handler handler) => handler.Handle(request))
+//    .WithName("Categories: Create")
+//    .WithSummary("Cria uma nova categoria")
+//    .Produces<Response<Category>>();
 
 app.UseHttpsRedirection();
 
