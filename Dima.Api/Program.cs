@@ -1,6 +1,9 @@
 using Dima.Api.Data;
 using Dima.Api.Handlers;
 using Dima.Core.Handlers;
+using Dima.Core.Models;
+using Dima.Core.Requests.Categories;
+using Dima.Core.Responses;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -34,12 +37,12 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-//app.MapPost(
-//    pattern: "/v1/categories",
-//    handler: (CreateCategoryRequest request, Handler handler) => handler.Handle(request))
-//    .WithName("Categories: Create")
-//    .WithSummary("Cria uma nova categoria")
-//    .Produces<Response<Category>>();
+app.MapPost(
+    pattern: "/v1/categories",
+    handler: (CreateCategoryRequest request, ICategoryHandler handler) => handler.CreateAsync(request))
+    .WithName("Categories: Create")
+    .WithSummary("Cria uma nova categoria")
+    .Produces<Response<Category>>();
 
 app.UseHttpsRedirection();
 
