@@ -31,19 +31,66 @@ public class CategoryHandler(AppDbContext context) : ICategoryHandler
         }
 
     }
-    public Task<Response<Category?>> DeleteAsync(DeleteCategoryRequest request)
+    public async Task<Response<Category?>> DeleteAsync(DeleteCategoryRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);
+
+            if (category == null)
+                return new Response<Category?>(null, code: 404, "Categoria Não Encontrada");
+
+            context.Categories.Remove(category);
+            await context.SaveChangesAsync();
+
+            return new Response<Category?>(category, message: "Categoria Excluída com sucesso");
+        }
+        catch (Exception ex)
+        {
+            return new Response<Category?>(null, code: 500, "Não foi possível excluir a categoria");
+        }
+
+
     }
 
-    public Task<Response<List<Category?>>> GetAllAsync(GetAllCategoriesRequest request)
+    public async Task<PagedResponse<List<Category?>?>> GetAllAsync(GetAllCategoriesRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = context.Categories.AsNoTracking().Where(x => x.UserId == request.UserId);
+
+            var categories = await query
+                .Skip(request.PageSize * request.PageNumber)
+                .Take(request.PageSize)
+                .ToListAsync();
+
+            var count = await query
+                .CountAsync();
+
+            return new PagedResponse<List<Category?>?>(categories, count, request.PageNumber, request.PageSize);
+
+        }
+        catch (Exception ex)
+        {
+            return new PagedResponse<List<Category?>?>(null, code: 500, "Não foi possível obter as categorias");
+        }
     }
 
-    public Task<Response<Category?>> GetByIdAsync(GetCategoryByIdRequest request)
+    public async Task<Response<Category?>> GetByIdAsync(GetCategoryByIdRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var category = await context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);
+
+            return category != null
+                ? new Response<Category?>(category, message: "Categoria encontrada")
+                : new Response<Category?>(null, code: 404, "Categoria não encontrada");
+
+        }
+        catch (Exception ex)
+        {
+            return new Response<Category?>(null, code: 500, "Não foi possível obter a categoria");
+        }
     }
 
     public async Task<Response<Category?>> UpdateAsync(UpdateCategoryRequest request)
