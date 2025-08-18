@@ -37,65 +37,67 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapPost(
-    pattern: "/v1/categories",
-    handler: async (ICategoryHandler handler, CreateCategoryRequest request) => await handler.CreateAsync(request))
-    .WithName("Categories: Create")
-    .WithSummary("Cria uma nova categoria")
-    .Produces<Response<Category>>();
+app.MapGet("/", () => "Ok!");
 
-app.MapPut(
-    pattern: "/v1/categories/{id}",
-    handler: async (ICategoryHandler handler, long id, UpdateCategoryRequest request) =>
-    {
-        request.Id = id;
-        return await handler.UpdateAsync(request);
-    })
-    .WithName("Categories: Update")
-    .WithSummary("Atualiza uma categoria")
-    .Produces<Response<Category>>();
+//app.MapPost(
+//    pattern: "/v1/categories",
+//    handler: async (ICategoryHandler handler, CreateCategoryRequest request) => await handler.CreateAsync(request))
+//    .WithName("Categories: Create")
+//    .WithSummary("Cria uma nova categoria")
+//    .Produces<Response<Category>>();
 
-app.MapDelete(
-    pattern: "/v1/categories/{id}",
-    handler: async (ICategoryHandler handler,long id) =>
-    {
-        var request = new DeleteCategoryRequest
-        {
-            Id = id
-        };
-        return await handler.DeleteAsync(request);
-    })
-    .WithName("Categories: Delete")
-    .WithSummary("Deleta uma categoria")
-    .Produces<Response<Category>>();
+//app.MapPut(
+//    pattern: "/v1/categories/{id}",
+//    handler: async (ICategoryHandler handler, long id, UpdateCategoryRequest request) =>
+//    {
+//        request.Id = id;
+//        return await handler.UpdateAsync(request);
+//    })
+//    .WithName("Categories: Update")
+//    .WithSummary("Atualiza uma categoria")
+//    .Produces<Response<Category>>();
 
-app.MapGet(
-    pattern: "/v1/categories/{id}",
-    handler: async (ICategoryHandler handler,long id) =>
-    {
-        var request = new GetCategoryByIdRequest
-        {
-            Id = id
-        };
-        return await handler.GetByIdAsync(request);
-    })
-    .WithName("Categories: Get by Id")
-    .WithSummary("Retorna uma categoria")
-    .Produces<Response<Category>>();
+//app.MapDelete(
+//    pattern: "/v1/categories/{id}",
+//    handler: async (ICategoryHandler handler,long id) =>
+//    {
+//        var request = new DeleteCategoryRequest
+//        {
+//            Id = id
+//        };
+//        return await handler.DeleteAsync(request);
+//    })
+//    .WithName("Categories: Delete")
+//    .WithSummary("Deleta uma categoria")
+//    .Produces<Response<Category>>();
 
-app.MapGet(
-    pattern: "/v1/categories",
-    handler: async (ICategoryHandler handler) =>
-    {
-        var request = new GetAllCategoriesRequest
-        {
-            UserId = ""
-        };
-        return await handler.GetAllAsync(request);
-    })
-    .WithName("Categories: Get All Categories")
-    .WithSummary("Retorna todas uma categoria")
-    .Produces<Response<Category>>();
+//app.MapGet(
+//    pattern: "/v1/categories/{id}",
+//    handler: async (ICategoryHandler handler,long id) =>
+//    {
+//        var request = new GetCategoryByIdRequest
+//        {
+//            Id = id
+//        };
+//        return await handler.GetByIdAsync(request);
+//    })
+//    .WithName("Categories: Get by Id")
+//    .WithSummary("Retorna uma categoria")
+//    .Produces<Response<Category>>();
+
+//app.MapGet(
+//    pattern: "/v1/categories",
+//    handler: async (ICategoryHandler handler) =>
+//    {
+//        var request = new GetAllCategoriesRequest
+//        {
+//            UserId = ""
+//        };
+//        return await handler.GetAllAsync(request);
+//    })
+//    .WithName("Categories: Get All Categories")
+//    .WithSummary("Retorna todas uma categoria")
+//    .Produces<Response<Category>>();
 
 app.UseHttpsRedirection();
 
