@@ -1,4 +1,5 @@
 using Dima.Api.Data;
+using Dima.Api.Endpoints;
 using Dima.Api.Handlers;
 using Dima.Core.Handlers;
 using Dima.Core.Models;
@@ -107,6 +108,7 @@ app.MapControllers();
 
 app.Run();
 
+app.MapEndpoints();
 
 //public class Request
 //{
