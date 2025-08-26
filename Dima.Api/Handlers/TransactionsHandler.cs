@@ -1,4 +1,5 @@
 ﻿using Dima.Api.Data;
+using Dima.Core.Common.Extensions;
 using Dima.Core.Handlers;
 using Dima.Core.Models;
 using Dima.Core.Requests.Transactions;
@@ -60,7 +61,22 @@ public class TransactionsHandler(AppDbContext context) : ITransactionHandler
     {
         try
         {
-            var query = context.Transactions.AsNoTracking().Where(x => x.UserId == request.UserId).OrderBy(e => e.Title);
+            request.StartDate ??= DateTime.Now.GetFirstDay();
+            request.EndDate ??= DateTime.Now.GetLasttDay();
+        }
+        catch (Exception ex)
+        {
+            return new PagedResponse<List<Transaction?>?>(null, code: 500, "Não foi possível determinar a data de início ou de fim");
+        }
+
+        try
+        {
+
+
+            var query = context.Transactions.AsNoTracking().Where(x => x.UserId == request.UserId
+                                                                    && x.CreatedAt >= request.StartDate
+                                                                    && x.CreatedAt <= request.EndDate).OrderBy(e => e.Title)
+                                                           .OrderBy(x => x.CreatedAt);
 
             var Transactions = await query
                 .Skip((request.PageSize - 1) * request.PageNumber)

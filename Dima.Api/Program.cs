@@ -106,9 +106,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapEndpoints();
+
 app.Run();
 
-app.MapEndpoints();
+
 
 //public class Request
 //{
