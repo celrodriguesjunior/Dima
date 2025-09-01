@@ -1,6 +1,7 @@
 using Dima.Api.Data;
 using Dima.Api.Endpoints;
 using Dima.Api.Handlers;
+using Dima.Api.Models;
 using Dima.Core.Handlers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySql(connStr, ServerVersion.AutoDetect(connStr));
 });
-
+builder.Services.AddIdentityCore<User>(/*options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+}*/).AddRoles<IdentityRole<long>>()
+  .AddEntityFrameworkStores<AppDbContext>()
+  .AddApiEndpoints();
 
 //builder.Services.AddTransient<Handler>();
 builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
@@ -34,6 +44,9 @@ builder.Services.AddOpenApi();
 
 
 var app = builder.Build();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -48,10 +61,15 @@ app.MapGet("/", () => "Ok!");
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapControllers();
 
 app.MapEndpoints();
 
 app.Run();
+
+
+//Comandos do ef migration
+//dotnet ef migrations add v3
+//dotnet ef database update

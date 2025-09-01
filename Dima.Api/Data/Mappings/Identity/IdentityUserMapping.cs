@@ -22,10 +22,10 @@ public class IdentityUserMapping : IEntityTypeConfiguration<User>
         builder.Property(u => u.PhoneNumber).HasMaxLength(20);
         builder.Property(u => u.ConcurrencyStamp).IsConcurrencyToken();
 
-        builder.HasMany<IdentityUserClaim<long>>().WithOne().HasForeignKey();
-        builder.HasMany<IdentityUserLogin<long>>().WithOne().HasForeignKey();
-        builder.HasMany<IdentityUserToken<long>>().WithOne().HasForeignKey();
-        builder.HasMany<IdentityUserRole<long>>().WithOne().HasForeignKey();
+        builder.HasMany<IdentityUserClaim<long>>().WithOne().HasForeignKey(uc => uc.UserId).IsRequired();
+        builder.HasMany<IdentityUserLogin<long>>().WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
+        builder.HasMany<IdentityUserToken<long>>().WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
+        builder.HasMany<IdentityUserRole<long>>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
 
     }
 }
