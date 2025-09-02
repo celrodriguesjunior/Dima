@@ -3,6 +3,7 @@ using Dima.Core.Handlers;
 using Dima.Core.Models;
 using Dima.Core.Requests.Categories;
 using Dima.Core.Responses;
+using System.Security.Claims;
 
 namespace Dima.Api.Endpoints.Categories;
 
@@ -16,10 +17,10 @@ public class UpdateCategoryEndpoint : IEndpoint
               .WithOrder(2)
               .Produces<Response<Category?>>();
 
-    public static async Task<IResult> HandleAsync(ICategoryHandler handler, UpdateCategoryRequest request, long id)
+    public static async Task<IResult> HandleAsync(ClaimsPrincipal user, ICategoryHandler handler, UpdateCategoryRequest request, long id)
     {
         request.Id = id;
-        request.UserId = "teste@teste.com";
+        request.UserId = user.Identity.Name;
         var response = await handler.UpdateAsync(request);
 
         return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);

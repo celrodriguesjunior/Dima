@@ -2,6 +2,7 @@
 using Dima.Core.Handlers;
 using Dima.Core.Models;
 using Dima.Core.Responses;
+using System.Security.Claims;
 
 namespace Dima.Api.Endpoints.Categories;
 
@@ -16,9 +17,9 @@ public class GetCategoryByIdEndpoint : IEndpoint
               .WithOrder(4)
               .Produces<Response<Category?>>()
               .Produces(StatusCodes.Status404NotFound);
-    public static async Task<IResult> HandleAsync(ICategoryHandler handler, long id)
+    public static async Task<IResult> HandleAsync(ClaimsPrincipal user, ICategoryHandler handler, long id)
     {
-        var response = await handler.GetByIdAsync(new Core.Requests.Categories.GetCategoryByIdRequest() { Id = id, UserId = "teste@teste.com" });
+        var response = await handler.GetByIdAsync(new Core.Requests.Categories.GetCategoryByIdRequest() { Id = id, UserId = user.Identity.Name });
         return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.NotFound(response);
     }
 }

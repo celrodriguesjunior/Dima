@@ -3,6 +3,7 @@ using Dima.Core.Handlers;
 using Dima.Core.Models;
 using Dima.Core.Requests.Transactions;
 using Dima.Core.Responses;
+using System.Security.Claims;
 
 namespace Dima.Api.Endpoints.Transactions;
 
@@ -17,9 +18,9 @@ public class GetTransactionByIdEndpoint : IEndpoint
           .WithOrder(4)
           .Produces<Response<Transaction?>>()
           .Produces(StatusCodes.Status404NotFound);
-    public static async Task<IResult> HandleAsync(ITransactionHandler handler, long id)
+    public static async Task<IResult> HandleAsync(ClaimsPrincipal user, ITransactionHandler handler, long id)
     {
-        var response = await handler.GetByIdAsync(new GetTransactionByIdRequest() { Id = id, UserId = "teste@teste.com" });
+        var response = await handler.GetByIdAsync(new GetTransactionByIdRequest() { Id = id, UserId = user.Identity.Name });
         return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.NotFound(response);
     }
 }

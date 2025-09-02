@@ -4,6 +4,7 @@ using Dima.Core.Models;
 using Dima.Core.Requests.Categories;
 using Dima.Core.Requests.Transactions;
 using Dima.Core.Responses;
+using System.Security.Claims;
 
 namespace Dima.Api.Endpoints.Transactions;
 
@@ -18,9 +19,9 @@ public class DeleteTransactionEndpoint : IEndpoint
               .WithOrder(3)
               .Produces<Response<Transaction?>>();
 
-    public static async Task<IResult> HandleAsync(ITransactionHandler handler, long id)
+    public static async Task<IResult> HandleAsync(ClaimsPrincipal user,ITransactionHandler handler, long id)
     {
-        var response = await handler.DeleteAsync(new DeleteTransactionRequest() { Id = id, UserId = "teste@teste.com" });
+        var response = await handler.DeleteAsync(new DeleteTransactionRequest() { Id = id, UserId = user.Identity.Name });
 
         return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
     }
