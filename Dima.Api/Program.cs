@@ -1,7 +1,9 @@
+using Dima.Api.Common.Api;
 using Dima.Api.Data;
 using Dima.Api.Endpoints;
 using Dima.Api.Handlers;
 using Dima.Api.Models;
+using Dima.Core;
 using Dima.Core.Handlers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,32 +15,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(x => { x.CustomSchemaIds(n => n.FullName); });
+builder.AddConfiguration();
+builder.AddSecturity();
 
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
-builder.Services.AddAuthorization();
-
-string connStr = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseMySql(connStr, ServerVersion.AutoDetect(connStr));
-});
-builder.Services.AddIdentityCore<User>(/*options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequiredLength = 6;
-}*/).AddRoles<IdentityRole<long>>()
-  .AddEntityFrameworkStores<AppDbContext>()
-  .AddApiEndpoints();
+builder.AddDataContext();
+builder.AddCrossOrigin();
+builder.AddDocumentation();
+builder.AddHandlers();
 
 //builder.Services.AddTransient<Handler>();
-builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
-builder.Services.AddTransient<ITransactionHandler, TransactionsHandler>();
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -46,44 +32,21 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.UseSwagger();
-app.UseSwaggerUI();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.ConfigureDevEnvironment();
 }
 
-app.MapGet("/", () => "Ok!");
+app.UseSecurity();
 
 app.UseHttpsRedirection();
-
-//app.UseAuthorization();
 
 app.MapControllers();
 
 app.MapEndpoints();
-app.MapGroup("v1/identity").WithTags("Identity").MapIdentityApi<User>();
-app.MapGroup("v1/identity").WithTags("Identity").MapPost("/logout", async (SignInManager<User> signInManager) =>
-{
-    await signInManager.SignOutAsync();
-    return Results.Ok();
-}).RequireAuthorization();
 
-app.MapGroup("v1/identity").WithTags("Identity").MapGet("/roles", async (ClaimsPrincipal user) =>
-{
-    if(user.Identity is null || user.Identity?.IsAuthenticated != true)
-        return Results.Unauthorized();
-
-    var identity = user.Identity as ClaimsIdentity; 
-    var roles = identity?.FindAll(identity.RoleClaimType).Select(c => new { c.Issuer, c.OriginalIssuer, c.Type, c.Value, c.ValueType });
-
-    return TypedResults.Json(roles);
-}).RequireAuthorization();
 
 
 
