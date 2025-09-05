@@ -1,3 +1,4 @@
+using Dima.Api;
 using Dima.Api.Common.Api;
 using Dima.Api.Data;
 using Dima.Api.Endpoints;
@@ -38,6 +39,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.ConfigureDevEnvironment();
 }
+
+app.UseCors(ApiConfiguration.CorsPolicyName);
 
 app.UseSecurity();
 
