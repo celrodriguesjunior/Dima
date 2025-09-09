@@ -202,8 +202,6 @@ C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\dotnet.runtime.js.map
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat
-C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.kkl6eomzn5.wasm
-C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.kp8jnglsqf.pdb
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\blazor.boot.json
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\service-worker.js
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\service-worker-assets.js
@@ -411,8 +409,6 @@ C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\dotnet.runtime.js.map.g
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\icudt_CJK.tjcz0u77k5.dat.gz
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\icudt_EFIGS.tptq2av103.dat.gz
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\icudt_no_CJK.lfu7j35m59.dat.gz
-C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.kkl6eomzn5.wasm.gz
-C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.kp8jnglsqf.pdb.gz
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\blazor.boot.json.gz
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\service-worker.js.gz
 C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\service-worker-assets.js.gz
@@ -829,10 +825,7 @@ C:\dev\Dima\Dima.Web\obj\Debug\net9.0\webcil\Dima.Web.wasm
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\scopedcss\Layout\MainLayout.razor.rz.scp.css
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\scopedcss\Layout\NavMenu.razor.rz.scp.css
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\scopedcss\bundle\Dima.Web.styles.css
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\scopedcss\projectbundle\Dima.Web.bundle.scp.css
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\blazor.build.boot-extension.json
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\blazor.boot.json
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\service-worker\service-worker-assets.js.build
@@ -887,8 +880,6 @@ C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\ikta64k6jg-ax0dqiw8mn.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\4743wrwhle-jteaafhatv.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\4kdbiz5be3-mwslvaimsf.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\1io74rpysu-md9yvkcqlf.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\0zy9yqu7lc-d9ibpd4o70.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\kcsmkqrjrx-d9ibpd4o70.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\pz73a2n55b-tnyc7xpluy.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\6ytrg13yje-t32damlu4o.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\neakd82ko0-up1bcx14yi.gz
@@ -1092,11 +1083,6 @@ C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\zyr1spxrup-i8ixevln79.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\edsgqk9fn7-tjcz0u77k5.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\r1w6mc3xm6-tptq2av103.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\6zndg2vzva-lfu7j35m59.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\xujp3esvxf-kkl6eomzn5.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\6rm4iddht2-kp8jnglsqf.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\mvidceechf-yvf37ndbjs.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\70vn0rd6h7-tlftlmqufu.gz
-C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\1yfefky1x0-8ko93dep4k.gz
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\staticwebassets.build.json
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\staticwebassets.development.json
@@ -1107,3 +1093,12 @@ C:\dev\Dima\Dima.Web\obj\Debug\net9.0\Dima.Web.dll
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\refint\Dima.Web.dll
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\Dima.Web.pdb
 C:\dev\Dima\Dima.Web\obj\Debug\net9.0\ref\Dima.Web.dll
+C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.v19fkf6vjp.wasm
+C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.eleatrmam8.pdb
+C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.v19fkf6vjp.wasm.gz
+C:\dev\Dima\Dima.Web\bin\Debug\net9.0\wwwroot\_framework\Dima.Web.eleatrmam8.pdb.gz
+C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\xujp3esvxf-v19fkf6vjp.gz
+C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\6rm4iddht2-eleatrmam8.gz
+C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\mvidceechf-cg72ap8v0l.gz
+C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\70vn0rd6h7-u70astzd5u.gz
+C:\dev\Dima\Dima.Web\obj\Debug\net9.0\compressed\1yfefky1x0-p84gc51zi0.gz
