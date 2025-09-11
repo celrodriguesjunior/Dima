@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Dima.Web",
   "resources": {
-    "hash": "sha256-OuC/x/IFwblSI+Y8dmQ+Nhkp2Cf14hwhW4ZLMY45BE8=",
+    "hash": "sha256-ha2nXlcyzsFLHU5FogY8hy5Rn30BtsiJIA4Eluu/hR8=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.tnyc7xpluy.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.t32damlu4o.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -204,8 +204,8 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "Dima.Web.c4wobez0jl.wasm": "Dima.Web.wasm",
-      "Dima.Web.h7u5majyhi.pdb": "Dima.Web.pdb"
+      "Dima.Web.04dvjvhelt.wasm": "Dima.Web.wasm",
+      "Dima.Web.aipy68q8is.pdb": "Dima.Web.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.9ih887ebfz.js": "sha256-oS7IRiQoVt9ThQ7Y2UM3XoeY0JqPD02cg9IvRdufn2w="
@@ -418,10 +418,10 @@
       "WindowsBase.361km0836k.wasm": "sha256-FacUCEIJYTnbOWgX/R9QP2QnurqRZwRIkDAH0N9z69s=",
       "mscorlib.qiu3j3msqk.wasm": "sha256-QvztpxTOEw4aMIl7zP3QtsPLNv/IWaK5wq22J4ReGrA=",
       "netstandard.lp03u0xxi4.wasm": "sha256-WVQsxULiAiEbyXLKolS7txnWVT82SsvsuMe4jJ+SqqI=",
-      "Dima.Web.c4wobez0jl.wasm": "sha256-ZDRJwksd6QqiBoEnBNaTbp3RK7Ur1Z/20BOBZbCZ6Qo="
+      "Dima.Web.04dvjvhelt.wasm": "sha256-4Ewo9s0W1AmYRF6lDgj17AGbiuHk6YjLA9OVEeqdJas="
     },
     "pdb": {
-      "Dima.Web.h7u5majyhi.pdb": "sha256-0+kxIUPwTjDGQ++Rh3NrZlP3qQvPH9kIcS+AhQV73Mo="
+      "Dima.Web.aipy68q8is.pdb": "sha256-ojtzSZTgCOc3eoiR1vQEdMEEpasyD7SMgAZx+DRS/oE="
     }
   },
   "cacheBootResources": true,
