@@ -1,6 +1,7 @@
-﻿@inherits LayoutComponentBase
+﻿@using MudBlazor
+@inherits LayoutComponentBase
 
-<MudBlazor.MudThemeProvider />
+<MudBlazor.MudThemeProvider Theme="theme" />
 <MudBlazor.MudSnackbarProvider />
 
 <MudBlazor.MudLayout>
@@ -10,3 +11,33 @@
         </MudBlazor.MudContainer>
     </MudBlazor.MudMainContent>
 </MudBlazor.MudLayout>
+
+
+@code {
+    private MudTheme theme = new()
+    {
+        Typography = new Typography()
+        {
+            Default = new Body1Typography()
+            {
+                FontFamily = ["Raleway", "sans-serif"]
+            }
+        },
+        PaletteLight = new PaletteLight()
+        {
+            Primary = new MudBlazor.Utilities.MudColor("#1EFA2D"),
+            Secondary = Colors.LightGreen.Darken3,
+            Background = Colors.Gray.Lighten4,
+            AppbarBackground = new MudBlazor.Utilities.MudColor("#1EFA2D"),
+            AppbarText = Colors.Shades.Black,
+            TextPrimary = Colors.Shades.Black,
+            DrawerText = Colors.Shades.Black,
+            DrawerBackground = Colors.LightGreen.Lighten4
+        },
+        PaletteDark = new PaletteDark()
+        {
+
+        }
+    };
+
+}
