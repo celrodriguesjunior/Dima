@@ -1,16 +1,41 @@
-﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+﻿@using MudBlazor
+@inherits LayoutComponentBase
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+<MudBlazor.MudThemeProvider @ref="_mudThemeProvider" @bind-IsDarkMode="_isDarkMode" Theme="Configuration.Theme" />
+<MudBlazor.MudSnackbarProvider />
 
-        <article class="content px-4">
+<MudBlazor.MudLayout>
+    <MudAppBar>
+        Dima
+        <MudSpacer />
+        <MudSwitch @bind-Value="_isDarkMode" />
+    </MudAppBar>
+    <MudBlazor.MudMainContent>
+        <MudBlazor.MudContainer>
             @Body
-        </article>
-    </main>
-</div>
+        </MudBlazor.MudContainer>
+    </MudBlazor.MudMainContent>
+</MudBlazor.MudLayout>
+
+@code {
+    private bool _isDarkMode { get; set; } = true;
+    private MudThemeProvider _mudThemeProvider = null!;
+
+    override protected async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _isDarkMode = await _mudThemeProvider.GetSystemPreference();
+            await _mudThemeProvider.WatchSystemDarkModeAsync(OnSystemPreferenceChanged);
+            StateHasChanged();
+        }
+    }
+
+    private Task OnSystemPreferenceChanged(bool newValue)
+    {
+        _isDarkMode = newValue;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+}

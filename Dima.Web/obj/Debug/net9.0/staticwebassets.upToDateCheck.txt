@@ -4,6 +4,7 @@ wwwroot\icon-192.png
 wwwroot\icon-512.png
 wwwroot\images\dima.png
 wwwroot\images\logo.png
+wwwroot\index.html
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -49,8 +50,8 @@ wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 wwwroot\manifest.webmanifest
-wwwroot\index.html
 C:\dev\Dima\Dima.Web\wwwroot\css\app.css
+C:\dev\Dima\Dima.Web\wwwroot\index.html
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -96,4 +97,3 @@ C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 C:\dev\Dima\Dima.Web\wwwroot\manifest.webmanifest
-C:\dev\Dima\Dima.Web\wwwroot\index.html
