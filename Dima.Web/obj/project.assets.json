@@ -577,6 +577,16 @@
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.props": {}
         }
+      },
+      "Dima.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Dima.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Dima.Core.dll": {}
+        }
       }
     },
     "net9.0/browser-wasm": {
@@ -1154,6 +1164,16 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
+      "Dima.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Dima.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Dima.Core.dll": {}
         }
       }
     }
@@ -2211,10 +2231,16 @@
         "staticwebassets/MudBlazor.min.css",
         "staticwebassets/MudBlazor.min.js"
       ]
+    },
+    "Dima.Core/1.0.0": {
+      "type": "project",
+      "path": "../Dima.Core/Dima.Core.csproj",
+      "msbuildProject": "../Dima.Core/Dima.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "Dima.Core >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 9.0.8",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 9.0.8",
       "Microsoft.Extensions.Http >= 9.0.9",
@@ -2262,7 +2288,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\dev\\Dima\\Dima.Core\\Dima.Core.csproj": {
+              "projectPath": "C:\\dev\\Dima\\Dima.Core\\Dima.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
