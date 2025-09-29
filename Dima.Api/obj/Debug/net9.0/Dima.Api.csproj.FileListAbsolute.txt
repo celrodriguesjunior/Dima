@@ -110,3 +110,4 @@ C:\dev\Dima\Dima.Api\obj\Debug\net9.0\Dima.Api.genruntimeconfig.cache
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\ref\Dima.Api.dll
 C:\dev\Dima\Dima.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\dev\Dima\Dima.Api\obj\Debug\net9.0\swae.build.ex.cache
