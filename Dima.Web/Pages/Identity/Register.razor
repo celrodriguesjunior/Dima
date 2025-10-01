@@ -1,5 +1,7 @@
 ﻿@page "/comecar"
 @layout HeadlessLayout
+@inherits RegisterPage
+
 
 <h1>Login</h1>
 <h2>Tela de Login</h2>
@@ -7,27 +9,22 @@
 <PageTitle>Dima - Entrar</PageTitle>
 
 <MudBlazor.MudGrid Justify="MudBlazor.Justify.Center">
-    <MudBlazor.MudItem xs="12" sm="12" md="8" lg="6" xl="6" xxl="6">
-        <MudBlazor.MudPaper Class="mud-width-full pa-8">
-            <div class="d-flex justify-center pb-8 pt-8">
-                <img src="images/dima.png" alt="Dima - Controle Financeiro" width="250" />
-            </div>
-            <h1>Autentique-se</h1>
+	<MudBlazor.MudItem xs="12" sm="12" md="8" lg="6" xl="6" xxl="6">
+		<MudBlazor.MudPaper Class="mud-width-full pa-8">
+			<div class="d-flex justify-center pb-8 pt-8">
+				<img src="images/dima.png" alt="Dima - Controle Financeiro" width="250" />
+			</div>
+			<h1>Autentique-se</h1>
 
-            <MudBlazor.MudForm @ref="_mudForm">
-                <MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Email" Required="true" RequiredError="Informe o E-mail" Validation="@(new EmailAddressAttribute { ErrorMessage = "Email inválido" })" />
-                <MudBlazor.MudTextField T="string" Label="Senha" InputType="MudBlazor.InputType.Password" Required="true" RequiredError="Senha Inválida" />
-            </MudBlazor.MudForm>
-            <div class="d-flex mt-8">
-                <MudBlazor.MudButton Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary">COMEÇAR</MudBlazor.MudButton>
-                <MudBlazor.MudSpacer />
-                <MudBlazor.MudButton Href="/login">JÁ TENHO UMA CONTA</MudBlazor.MudButton>
-            </div>
-        </MudBlazor.MudPaper>
-    </MudBlazor.MudItem>
+			<MudBlazor.MudForm @ref="MudForm">
+				<MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Email" Required="true" RequiredError="Informe o E-mail" Validation="@(new EmailAddressAttribute { ErrorMessage = "Email inválido" })" />
+				<MudBlazor.MudTextField T="string" Label="Senha" InputType="MudBlazor.InputType.Password" Required="true" RequiredError="Senha Inválida" />
+			</MudBlazor.MudForm>
+			<div class="d-flex mt-8">
+				<MudBlazor.MudButton Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary">COMEÇAR</MudBlazor.MudButton>
+				<MudBlazor.MudSpacer />
+				<MudBlazor.MudButton Href="/login">JÁ TENHO UMA CONTA</MudBlazor.MudButton>
+			</div>
+		</MudBlazor.MudPaper>
+	</MudBlazor.MudItem>
 </MudBlazor.MudGrid>
-
-@code {
-    MudBlazor.MudForm? _mudForm;
-
-}

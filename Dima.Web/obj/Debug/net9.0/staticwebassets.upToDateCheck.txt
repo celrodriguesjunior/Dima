@@ -1,6 +1,7 @@
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+C:\dev\Dima\Dima.Web\wwwroot\appsettings.json
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
@@ -45,6 +46,7 @@ C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 C:\dev\Dima\Dima.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+wwwroot\appsettings.json
 wwwroot\css\app.css
 wwwroot\favicon.png
 wwwroot\icon-192.png
