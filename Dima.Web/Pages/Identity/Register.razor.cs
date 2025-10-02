@@ -1,14 +1,76 @@
-﻿using Dima.Web.Security;
+﻿using Dima.Core.Handlers;
+using Dima.Core.Requests.Account;
+using Dima.Web.Security;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Dima.Web.Pages.Identity;
 
 public partial class RegisterPage(CookieAuthenticationStateProvider cookieAuthenticationState) : ComponentBase
 {
+    #region Dependecies
+
     [Inject]
-    public CookieAuthenticationStateProvider AuthState { get; set; } = null!;
+    public ISnackbar Snackbar { get; set; } = null!;
 
-    public MudForm MudForm { get; set; } = null!;
+    [Inject]
+    public IAccountHandler Handler { get; set; } = null!;
 
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = null!;
+
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
+
+    #endregion
+
+    #region Properties
+    public bool IsBusy { get; set; } = false;
+    public RegisterRequest InputModel { get; set; } = new();
+    #endregion
+
+    #region Overrides
+    protected override async Task OnInitializedAsync()
+    {
+        var authStateProvider = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authStateProvider.User;
+
+        if (user.Identity is { IsAuthenticated: true })
+            NavigationManager.NavigateTo("/");
+
+    }
+    #endregion
+
+    #region Methods
+    public async Task OnValidSubmitAsync()
+    {
+        IsBusy = true;
+        try
+        {
+            var response = await Handler.RegisterAsync(InputModel);
+
+            if (response.IsSuccess)
+            {
+                Snackbar.Add("Registro realizado com sucesso!", Severity.Success);
+                NavigationManager.NavigateTo("/login");
+            }
+            else
+            {
+                Snackbar.Add(response.Message, Severity.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("Ocorreu um erro inesperado. Tente novamente mais tarde." + ex.Message, Severity.Error);
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+
+
+    }
+    #endregion
 }

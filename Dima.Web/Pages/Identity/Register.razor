@@ -16,15 +16,25 @@
 			</div>
 			<h1>Autentique-se</h1>
 
-			<MudBlazor.MudForm @ref="MudForm">
-				<MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Email" Required="true" RequiredError="Informe o E-mail" Validation="@(new EmailAddressAttribute { ErrorMessage = "Email inválido" })" />
-				<MudBlazor.MudTextField T="string" Label="Senha" InputType="MudBlazor.InputType.Password" Required="true" RequiredError="Senha Inválida" />
-			</MudBlazor.MudForm>
-			<div class="d-flex mt-8">
-				<MudBlazor.MudButton Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary">COMEÇAR</MudBlazor.MudButton>
-				<MudBlazor.MudSpacer />
-				<MudBlazor.MudButton Href="/login">JÁ TENHO UMA CONTA</MudBlazor.MudButton>
-			</div>
+			<EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+				<DataAnnotationsValidator />
+
+				<MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Email" HelperText="Campo obrigatório" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)" />
+				<MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Password" HelperText="Campo obrigatório" @bind-Value="InputModel.Password" For="@(() => InputModel.Password)" />
+
+				<div class="d-flex mt-8">
+					@if (IsBusy)
+					{
+						<MudBlazor.MudProgressCircular Color="MudBlazor.Color.Info" Indeterminate="true" />
+					}
+					else
+					{
+						<MudBlazor.MudButton ButtonType="MudBlazor.ButtonType.Submit" Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary">COMEÇAR</MudBlazor.MudButton>
+						<MudBlazor.MudSpacer />
+						<MudBlazor.MudButton Href="/login">JÁ TENHO UMA CONTA</MudBlazor.MudButton>
+					}
+				</div>
+			</EditForm>
 		</MudBlazor.MudPaper>
 	</MudBlazor.MudItem>
 </MudBlazor.MudGrid>
