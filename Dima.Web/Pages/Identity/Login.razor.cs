@@ -4,11 +4,10 @@ using Dima.Web.Security;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Dima.Web.Pages.Identity;
 
-public partial class RegisterPage : ComponentBase
+public partial class LoginPage : ComponentBase
 {
     #region Dependecies
 
@@ -26,10 +25,12 @@ public partial class RegisterPage : ComponentBase
 
     #endregion
 
+
     #region Properties
     public bool IsBusy { get; set; } = false;
-    public RegisterRequest InputModel { get; set; } = new();
+    public LoginRequest InputModel { get; set; } = new();
     #endregion
+
 
     #region Overrides
     protected override async Task OnInitializedAsync()
@@ -49,12 +50,12 @@ public partial class RegisterPage : ComponentBase
         IsBusy = true;
         try
         {
-            var response = await Handler.RegisterAsync(InputModel);
+            var response = await Handler.LoginAsync(InputModel);
 
             if (response.IsSuccess)
             {
-                Snackbar.Add("Registro realizado com sucesso!", Severity.Success);
-                NavigationManager.NavigateTo("/login");
+                Snackbar.Add("Login realizado com sucesso!", Severity.Success);
+                NavigationManager.NavigateTo("/");
             }
             else
             {

@@ -1,5 +1,6 @@
 ﻿@page "/login"
 @layout HeadlessLayout
+@inherits LoginPage
 
 <h1>Login</h1>
 <h2>Tela de Login</h2>
@@ -7,27 +8,32 @@
 <PageTitle>Dima - Entrar</PageTitle>
 
 <MudBlazor.MudGrid Justify="MudBlazor.Justify.Center">
-    <MudBlazor.MudItem xs="12" sm="12" md="8" lg="6" xl="6" xxl="6">
-        <MudBlazor.MudPaper Class="mud-width-full pa-8">
-            <div class="d-flex justify-center pb-8 pt-8">
-                <img src="images/dima.png" alt="Dima - Controle Financeiro" width="250" />
-            </div>
-            <h1>Autentique-se</h1>
+	<MudBlazor.MudItem xs="12" sm="12" md="8" lg="6" xl="6" xxl="6">
+		<MudBlazor.MudPaper Class="mud-width-full pa-8">
+			<div class="d-flex justify-center pb-8 pt-8">
+				<img src="images/dima.png" alt="Dima - Controle Financeiro" width="250" />
+			</div>
+			<h1>Autentique-se</h1>
 
-            <MudBlazor.MudForm @ref="_mudForm">
-                <MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Email" Required="true" RequiredError="Informe o E-mail" Validation="@(new EmailAddressAttribute { ErrorMessage = "Email inválido" })" />
-                <MudBlazor.MudTextField T="string" Label="Senha" InputType="MudBlazor.InputType.Password" Required="true" RequiredError="Senha Inválida" />
-            </MudBlazor.MudForm>
-            <div class="d-flex mt-8">
-                <MudBlazor.MudButton Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary">ENTRAR</MudBlazor.MudButton>
-                <MudBlazor.MudSpacer />
-                <MudBlazor.MudButton Href="/comecar">Registrar</MudBlazor.MudButton>
-            </div>
-        </MudBlazor.MudPaper>
-    </MudBlazor.MudItem>
+			<EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+				<DataAnnotationsValidator />
+
+				<MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Email" HelperText="Campo obrigatório" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)" />
+				<MudBlazor.MudTextField T="string" Label="Email" InputType="MudBlazor.InputType.Password" HelperText="Campo obrigatório" @bind-Value="InputModel.Password" For="@(() => InputModel.Password)" />
+
+				<div class="d-flex mt-8">
+					@if (IsBusy)
+					{
+						<MudBlazor.MudProgressCircular Color="MudBlazor.Color.Info" Indeterminate="true" />
+					}
+					else
+					{
+						<MudBlazor.MudButton ButtonType="MudBlazor.ButtonType.Submit" Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary">Entrar</MudBlazor.MudButton>
+						<MudBlazor.MudSpacer />
+						<MudBlazor.MudButton Href="/comecar">QUERO ME CADASTRAR</MudBlazor.MudButton>
+					}
+				</div>
+			</EditForm>
+		</MudBlazor.MudPaper>
+	</MudBlazor.MudItem>
 </MudBlazor.MudGrid>
-
-@code {
-    MudBlazor.MudForm? _mudForm;
-
-}

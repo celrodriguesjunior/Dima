@@ -1,0 +1,22 @@
+﻿@page "/sair"
+@using MudBlazor
+@inherits LogoutPage
+@layout HeadlessLayout
+
+
+<PageTitle>Dima - Sair</PageTitle>
+
+<MudBlazor.MudText Typo="Typo.h3" Align="Align.Center" Class="mt-12"> Finalizando Sessão....</MudBlazor.MudText>
+
+<MudPaper Class="pa-8 mt-4">
+	<div>
+		class="d-flex justify-center pb-8 pt-8"
+		<img src="images/dima.png" alt="Dima - Seu Controle Financeiro" width="200" />
+	</div>
+	<MudAlert Severity="Severity.Info">
+		Finalizando Sessão....
+		<MudButton Variant="Variant.Text" Href="/">
+			IR PARA TELA DE LOGIN
+		</MudButton>
+	</MudAlert>
+</MudPaper>
