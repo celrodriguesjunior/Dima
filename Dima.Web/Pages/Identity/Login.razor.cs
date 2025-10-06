@@ -54,7 +54,9 @@ public partial class LoginPage : ComponentBase
 
             if (response.IsSuccess)
             {
-                Snackbar.Add("Login realizado com sucesso!", Severity.Success);
+                await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                AuthenticationStateProvider.NotifyAuthenticationStateChanged();
+                //Snackbar.Add("Login realizado com sucesso!", Severity.Success);
                 NavigationManager.NavigateTo("/");
             }
             else
