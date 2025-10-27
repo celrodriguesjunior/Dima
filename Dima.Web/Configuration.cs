@@ -20,13 +20,14 @@ public static class Configuration
         PaletteLight = new PaletteLight()
         {
             Primary = new MudBlazor.Utilities.MudColor("#1EFA2D"),
+            PrimaryContrastText = new MudBlazor.Utilities.MudColor("#000000"),
             Secondary = Colors.LightGreen.Darken3,
             Background = Colors.Gray.Lighten4,
             AppbarBackground = new MudBlazor.Utilities.MudColor("#1EFA2D"),
             AppbarText = Colors.Shades.Black,
             TextPrimary = Colors.Shades.Black,
-            DrawerText = Colors.Shades.Black,
-            DrawerBackground = Colors.LightGreen.Lighten4
+            DrawerText = Colors.Shades.White,
+            DrawerBackground = Colors.LightGreen.Darken4
         },
         PaletteDark = new PaletteDark()
         {
@@ -34,6 +35,7 @@ public static class Configuration
             Secondary = Colors.LightGreen.Darken3,
             AppbarBackground = Colors.LightGreen.Accent3,
             AppbarText = Colors.Shades.Black,
+            PrimaryContrastText = new MudBlazor.Utilities.MudColor("#000000")
         }
     };
 
