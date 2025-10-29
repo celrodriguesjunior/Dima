@@ -1,0 +1,11 @@
+﻿@page "/categories"
+@inherits ListCategoriesPage
+
+<MudBlazor.MudText Typo="MudBlazor.Typo.h3">Categorias</MudBlazor.MudText>
+
+<ul>
+	@foreach (var category in Categories)
+	{
+		<li>@category.Title</li>
+	}
+</ul>
