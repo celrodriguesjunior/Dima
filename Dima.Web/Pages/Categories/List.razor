@@ -1,11 +1,25 @@
 ﻿@page "/categories"
+@using MudBlazor
 @inherits ListCategoriesPage
 
 <MudBlazor.MudText Typo="MudBlazor.Typo.h3">Categorias</MudBlazor.MudText>
 
-<ul>
+<div class="d-flex justify-content-end">
+	<MudBlazor.MudButton Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary" Href="/categories/create" StartIcon="@Icons.Material.Filled.Add">
+		NOVA CATEGORIA
+	</MudBlazor.MudButton>
+</div>
+
+<MudDataGrid Items="@Categories" Class="pt-4">
+	<Columns>
+		<PropertyColumn Property="x=> x.Id" Title="#"/>
+		<PropertyColumn Property="x=> x.Title" Title="Categoria"/>
+	</Columns>
+</MudDataGrid>
+
+@* <ul>
 	@foreach (var category in Categories)
 	{
 		<li>@category.Title</li>
 	}
-</ul>
+</ul> *@
