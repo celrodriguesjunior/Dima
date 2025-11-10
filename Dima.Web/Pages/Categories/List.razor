@@ -10,10 +10,31 @@
 	</MudBlazor.MudButton>
 </div>
 
-<MudDataGrid Items="@Categories" Class="pt-4">
+<MudDataGrid Items="@Categories" Class="mt-4" QuickFilter="SearchFunc" Hideable="true">
+	<ToolBarContent>
+		<MudText Typo="Typo.h6">Categorias</MudText>
+		<MudSpacer />
+		<MudTextField @bind-Value="SearchString"
+					  Placeholder="Pesquisar..."
+					  Adornment="Adornment.Start"
+					  AdornmentIcon="@Icons.Material.Filled.Search"
+					  IconSize="Size.Medium" Class="mt-0"
+					  Immediate="true" />
+	</ToolBarContent>
 	<Columns>
-		<PropertyColumn Property="x=> x.Id" Title="#"/>
-		<PropertyColumn Property="x=> x.Title" Title="Categoria"/>
+		<PropertyColumn Property="x => x.Id" Title="#" />
+		<PropertyColumn Property="x => x.Title" Title="Categoria" />
+		<TemplateColumn Class="d-flex justify-content-end">
+			<CellTemplate>
+				<MudStack Row>
+					<MudIconButton Icon="@Icons.Material.Filled.Edit" Href="@($"/categorias/editar/{context.Item.Id}")" Color="Color.Primary">
+					</MudIconButton>
+					<MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" aria-label="Excluir" OnClick="() => { OnDeleteButtonClickedAsync(context.Item.Id, context.Item.Description); }">
+
+					</MudIconButton>
+				</MudStack>
+			</CellTemplate>
+		</TemplateColumn>
 	</Columns>
 </MudDataGrid>
 
