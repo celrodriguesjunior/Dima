@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Dima.Web",
   "resources": {
-    "hash": "sha256-vJubkJUDyHx0ULkRkv8/Xh2a8bcAXFXZNzAiILpZwYc=",
+    "hash": "sha256-ueA+9O8UNbm3WCoMcGugENsd0G5CLtlO0yDo6I3ETlo=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.tnyc7xpluy.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.t32damlu4o.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -210,10 +210,10 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "Dima.Core.g1kxnqbch8.wasm": "Dima.Core.wasm",
-      "Dima.Core.qsykobcwoj.pdb": "Dima.Core.pdb",
-      "Dima.Web.9hd2fr1oh1.wasm": "Dima.Web.wasm",
-      "Dima.Web.tnicebdduv.pdb": "Dima.Web.pdb"
+      "Dima.Core.c06rhyzngx.wasm": "Dima.Core.wasm",
+      "Dima.Core.0d81aezm7v.pdb": "Dima.Core.pdb",
+      "Dima.Web.f6vobu5ds8.wasm": "Dima.Web.wasm",
+      "Dima.Web.nvnb3dqg2x.pdb": "Dima.Web.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.l4ptthxatg.js": "sha256-ddUN4+taa/Qv7Mr8mLpunJO+0Xw3ViOqBvedhe57/hA="
@@ -432,12 +432,12 @@
       "WindowsBase.ahs9krftg4.wasm": "sha256-bgi2FHdT0ABsUP1yKQQ2AP8qfo1V/bS/4cJFE4OUHX8=",
       "mscorlib.k5iaovx9v7.wasm": "sha256-mEFLDERlY1HMNQHzh68xOPawXvI48O1fHW9PbfXugb4=",
       "netstandard.6sr1qvn64m.wasm": "sha256-Gpf+qEqCYaCB6zqI5sNPIurnfpwRtfcWksgf3CW6mHE=",
-      "Dima.Core.g1kxnqbch8.wasm": "sha256-tLKLqltZlG4zWGE730JjpQ+1Ru/ne4HXmYie0VuC39E=",
-      "Dima.Web.9hd2fr1oh1.wasm": "sha256-Q4TUwo5lrnrkjyNjLAz9LaN6SSIueR1uBHvWf8Dp4NU="
+      "Dima.Core.c06rhyzngx.wasm": "sha256-LMB78ww2degbto5iYVNqAD16FUXne6lHWIpanqcb3+0=",
+      "Dima.Web.f6vobu5ds8.wasm": "sha256-KZk0uw6VW/38ixaj69njMU42hCgS0BhIzFvT1+fI9Oc="
     },
     "pdb": {
-      "Dima.Core.qsykobcwoj.pdb": "sha256-1i7Un5wnypyQfeqC6f+xDYLq+Kf4QSLUlreawJz6DFE=",
-      "Dima.Web.tnicebdduv.pdb": "sha256-edP7EbDzFXBKxBEm/+LUK+1BZ6W3Zi9qDfsz9o2eYDo="
+      "Dima.Core.0d81aezm7v.pdb": "sha256-bC3+LbrKFQqisaP5GWrJttGBArGgBDf7MoehgKeqYL4=",
+      "Dima.Web.nvnb3dqg2x.pdb": "sha256-oyRR1WEU5ZkzkaxVaRw2c9kufyivux0BcnfWHhgZ4cE="
     }
   },
   "cacheBootResources": true,

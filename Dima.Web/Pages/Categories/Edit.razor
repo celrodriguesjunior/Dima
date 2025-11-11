@@ -1,0 +1,27 @@
+﻿@page "/categorias/editar/{id}"
+@inherits EditCategoryPage
+
+
+<MudBlazor.MudText Typo="MudBlazor.Typo.h3">Editar Categoria</MudBlazor.MudText>
+
+@if (IsBusy)
+{
+	<MudBlazor.MudPaper Class="pa-4 mt-4">
+		<MudBlazor.MudSkeleton Height="55px" />
+		<MudBlazor.MudSkeleton Height="110px" />
+		<MudBlazor.MudSkeleton Height="55px" />
+		<MudBlazor.MudSkeleton Height="110px" />
+		<MudBlazor.MudSkeleton Height="55px" />
+	</MudBlazor.MudPaper>
+}
+else
+{
+	<MudBlazor.MudPaper Class="pa-8 mt-4">
+		<EditForm Model="@InputModel" OnInvalidSubmit="OnValidSubmitAsync">
+			<DataAnnotationsValidator />
+			<MudBlazor.MudTextField Label="Título" HelperText="Campo obrigatório" @bind-Value="InputModel.Title" For="@(() => InputModel.Title)" />
+			<MudBlazor.MudTextField Label="Descrição" HelperText="Campo obrigatório" Lines="5" @bind-Value="InputModel.Description" For="@(() => InputModel.Description)" Immediate="true" />
+			<MudBlazor.MudButton Type="Submit" Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Primary" Class="mt-4">Salvar</MudBlazor.MudButton>
+		</EditForm>
+	</MudBlazor.MudPaper>
+}
