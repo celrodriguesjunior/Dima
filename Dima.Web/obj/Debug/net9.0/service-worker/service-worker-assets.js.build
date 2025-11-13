@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "wWd30YCa",
+  "version": "6CdL8YZD",
   "assets": [
     {
       "hash": "sha256-kJXKqRCleT/Jk1wJUhUu24r2LAA7IWVYmdoENizE38M=",
@@ -14,20 +14,20 @@ self.assetsManifest = {
       "url": "_content/MudBlazor/MudBlazor.min.js"
     },
     {
-      "hash": "sha256-bC3+LbrKFQqisaP5GWrJttGBArGgBDf7MoehgKeqYL4=",
-      "url": "_framework/Dima.Core.0d81aezm7v.pdb"
+      "hash": "sha256-I51VXZ07WvUof5i05G1+SMT8BmYjZaqv1+B42Crvcac=",
+      "url": "_framework/Dima.Core.7nivdsh0o4.wasm"
     },
     {
-      "hash": "sha256-LMB78ww2degbto5iYVNqAD16FUXne6lHWIpanqcb3+0=",
-      "url": "_framework/Dima.Core.c06rhyzngx.wasm"
+      "hash": "sha256-c0badIRYNLwrl9Uz/V68dPm9OTHY0MwKiv4glHUdu/Y=",
+      "url": "_framework/Dima.Core.b6xq4m8osz.pdb"
     },
     {
-      "hash": "sha256-KZk0uw6VW/38ixaj69njMU42hCgS0BhIzFvT1+fI9Oc=",
-      "url": "_framework/Dima.Web.f6vobu5ds8.wasm"
+      "hash": "sha256-NUPeyJ5XuynxknM23zu74fDaAqEO6kNh450zF1SOtxk=",
+      "url": "_framework/Dima.Web.b82yxf6rdd.pdb"
     },
     {
-      "hash": "sha256-oyRR1WEU5ZkzkaxVaRw2c9kufyivux0BcnfWHhgZ4cE=",
-      "url": "_framework/Dima.Web.nvnb3dqg2x.pdb"
+      "hash": "sha256-I8QlJgxl+YdscuWqxHWtGg7DYJClbFcRIO2zZ8v7R9E=",
+      "url": "_framework/Dima.Web.njeq0esxux.wasm"
     },
     {
       "hash": "sha256-h2pKkq57/vS3mbEFyiqoupHb66C30OMHzjlzDqfbD40=",
@@ -822,7 +822,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.ahs9krftg4.wasm"
     },
     {
-      "hash": "sha256-Z9irwHsYdpnJ4NFjLEkU31NM+X15BWIpQmlLOQCjS2w=",
+      "hash": "sha256-MzYTK7nTAMIBwqloiYnHqtKHmJhCgV6tuPaucJgOiHA=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -830,40 +830,32 @@ self.assetsManifest = {
       "url": "_framework/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-N+/jRbIsqVbSKyrJpXTfko/MbGFn4mYhGgK+pW+zQ7o=",
+      "hash": "sha256-T1vT02oTgL1ZyvL5isJPjfUyEmsUizbUY23kldI8wZ4=",
       "url": "_framework/dotnet.js"
     },
     {
-      "hash": "sha256-+lwIA4+WTCPBfDf1VlZb7xe9sciixo1AduuHdWhr8J4=",
+      "hash": "sha256-U5Ze8LgeQhQdPtpMfG+ihMkdpGNJqs9sMe2Bdlgzo7k=",
       "url": "_framework/dotnet.js.map"
     },
     {
-      "hash": "sha256-62UC3VfSQyaGpPUm7iSjBYuQ1xD31WdRYY20NQ1K+Vs=",
-      "url": "_framework/dotnet.native.d2w7colv7e.wasm"
+      "hash": "sha256-p9eEzXhQIsI0a5bBJhfzW15iRafgplTxT8XrO5FiH9o=",
+      "url": "_framework/dotnet.native.noby4tlk4d.js"
     },
     {
-      "hash": "sha256-ddUN4+taa/Qv7Mr8mLpunJO+0Xw3ViOqBvedhe57/hA=",
-      "url": "_framework/dotnet.native.l4ptthxatg.js"
+      "hash": "sha256-Po2dalLvTpf5jAS+jt0TzuBYybYiL1F6qAacZJ8UAdo=",
+      "url": "_framework/dotnet.native.qe75a9vfqn.wasm"
     },
     {
-      "hash": "sha256-yfXUv1l/B489E8p12JxUvxly0JvHL9CCsoZUDlfGH9c=",
-      "url": "_framework/dotnet.runtime.drv0pr9n5o.js"
+      "hash": "sha256-6QIZYgG+ftoT9N1H1EEJeXIhD/qbKqEcnmawDskiwdI=",
+      "url": "_framework/dotnet.runtime.9o45ky8ejm.js"
     },
     {
-      "hash": "sha256-80HGZ952L3dSsV7QdENpkCQnCRHzuPyw2ZMXoPeFLjs=",
+      "hash": "sha256-5tmnUNd+LbNMJ9y5ynE3RNMd/g/1UvnAgVrznidh4EA=",
       "url": "_framework/dotnet.runtime.js.map"
     },
     {
-      "hash": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
-      "url": "_framework/icudt_CJK.tjcz0u77k5.dat"
-    },
-    {
-      "hash": "sha256-8fItetYY8kQ0ww6oxwTLiT3oXlBwHKumbeP2pRF4yTc=",
-      "url": "_framework/icudt_EFIGS.tptq2av103.dat"
-    },
-    {
-      "hash": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs=",
-      "url": "_framework/icudt_no_CJK.lfu7j35m59.dat"
+      "hash": "sha256-tO5O5YzMTVSaKBboxAqezOQL9ewmupzV2JrB5Rkc8a4=",
+      "url": "_framework/icudt.oh1zvcfom8.dat"
     },
     {
       "hash": "sha256-mEFLDERlY1HMNQHzh68xOPawXvI48O1fHW9PbfXugb4=",
@@ -872,6 +864,10 @@ self.assetsManifest = {
     {
       "hash": "sha256-Gpf+qEqCYaCB6zqI5sNPIurnfpwRtfcWksgf3CW6mHE=",
       "url": "_framework/netstandard.6sr1qvn64m.wasm"
+    },
+    {
+      "hash": "sha256-MrI+3lUFlnP1xW5bvjZLzPQbhrnWYqEV49QR8KyPNBQ=",
+      "url": "_framework/segmentation-rules.json"
     },
     {
       "hash": "sha256-a02eIBDU6Tj9aWT4f3UKwe3sAIQ6kg/EckKEP4JST2Y=",
