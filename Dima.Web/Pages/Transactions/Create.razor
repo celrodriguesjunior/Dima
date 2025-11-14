@@ -27,9 +27,21 @@
 					   HelperText="Selecione a data que o valor será pago ou recebido" />
 
 		<MudSelect T="ETransactionType" Label="Tipo de Movimentação" @bind-Value="InputModel.Type" AnchorOrigin="Origin.BottomCenter">
-			<MudSelectItem T="ETransactionType" Value="ETransactionType.Deposit">Depósito</MudSelectItem>
-			<MudSelectItem T="ETransactionType" Value="ETransactionType.Withdraw">Saque</MudSelectItem>
+			<MudSelectItem T="ETransactionType" Value="ETransactionType.Deposit">Entrada</MudSelectItem>
+			<MudSelectItem T="ETransactionType" Value="ETransactionType.Withdraw">Saída</MudSelectItem>
 		</MudSelect>
+
+		<MudSelect T="long" Label="Categoria" @bind-Value="InputModel.CategoryId" AnchorOrigin="Origin.BottomCenter">
+			@foreach (var category in Categories)
+			{
+				<MudSelectItem T="long" Value="@category.Id">@category.Title</MudSelectItem>
+			}
+		</MudSelect>
+
+		<MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="mt-4">
+			Salvar
+		</MudButton>
+
 
 	</EditForm>
 
