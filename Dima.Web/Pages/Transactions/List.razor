@@ -6,6 +6,24 @@
 <MudText Typo="Typo.h3">Lançamentos</MudText>
 
 
+<div class="d-flex justify-content-end mt-4 mb-4">
+	<MudSelect T="int" Label="Mês" @bind-Value="CurrentMonth" AnchorOrigin="Origin.BottomCenter" Class="mr-4">
+		@for (int month = 1; month <= 12; month++)
+		{
+			var date = new DateTime(DateTime.Now.Year, month, 1);
+			<MudSelectItem T="int" Value="@month">@(date.ToString("MMMM"))</MudSelectItem>
+		}
+	</MudSelect>
+	<MudSelect T="int" Label="Ano" @bind-Value="CurrentYear" AnchorOrigin="Origin.BottomCenter">
+		@foreach (var year in Years)
+		{
+			<MudSelectItem T="int" Value="@year">@year</MudSelectItem>
+		}
+	</MudSelect>
+	<MudSpacer />
+	<MudButton Size="Size.Small" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.TwoTone.Search" OnClick="OnSearchAsync">Pesquisar</MudButton>
+</div>
+
 <MudDataGrid Items="@Transactions" Filterable="false" QuickFilter="FilterTransactions" Hideable="true" ColumnResizeMode="ResizeMode.Column">
 	<ToolBarContent>
 		<MudText Typo="Typo.h6">Lançamentos</MudText>
@@ -30,6 +48,14 @@
 		<PropertyColumn Property="x => x.Amount" Format="C" Title="Valor" Sortable="true">
 			<FooterTemplate>@context.Items.Sum(e => e.Amount).ToString("C")</FooterTemplate>
 		</PropertyColumn>
+		<TemplateColumn Class="d-flex justify-content-end">
+			<CellTemplate>
+				<MudStack Row>
+					<MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Href="@($"lancamentos/editar/{context.Item.Id}")" />
+					<MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" aria-label="Excluir" OnClick="() => OnDeleteButtonClickedAsync(context.Item.Id, context.Item.Title)" />
+				</MudStack>
+			</CellTemplate>
+		</TemplateColumn>
 	</Columns>
 
 </MudDataGrid>

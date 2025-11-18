@@ -49,6 +49,25 @@ public partial class ListTransactionsPage : ComponentBase
         return t.Title.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) || t.Id.ToString().Contains(SearchTerm, StringComparison.OrdinalIgnoreCase);
     };
 
+    public async void OnDeleteButtonClickedAsync(long id, string title)
+    {
+        var result = await DialogService.ShowMessageBox(
+            "Confirmação",
+            "Tem certeza que deseja excluir esta transação?",
+            yesText: "Sim", noText: "Não");
+
+        if (result == true)
+            await OnDeleteAsync(id, title);
+
+        StateHasChanged();
+    }
+
+    public async Task OnSearchAsync()
+    {
+        await LoadTransactionsAsync();
+        StateHasChanged();
+    }
+
     #endregion
 
     #region Private Methods
@@ -81,6 +100,35 @@ public partial class ListTransactionsPage : ComponentBase
             StateHasChanged();
         }
     }
+
+    private async Task OnDeleteAsync(long id, string title)
+    {
+        IsBusy = true;
+        try
+        {
+            var result = await TransactionHandler.DeleteAsync(new Core.Requests.Transactions.DeleteTransactionRequest() { Id = id });
+            if (result.IsSuccess)
+            {
+                Snackbar.Add(title + " excluída com sucesso.", Severity.Success);
+                Transactions.RemoveAll(x => x.Id == id);
+            }
+            else
+            {
+                Snackbar.Add("Não foi possível excluir a transação. " + result.Message, Severity.Error);
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("Erro ao excluir a transação. " + ex.Message, Severity.Error);
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+
+    }
+
     #endregion
 
 }
