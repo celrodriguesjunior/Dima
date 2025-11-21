@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "K9nRkWKf",
+  "version": "O+GxF2X5",
   "assets": [
     {
       "hash": "sha256-kJXKqRCleT/Jk1wJUhUu24r2LAA7IWVYmdoENizE38M=",
@@ -22,12 +22,12 @@ self.assetsManifest = {
       "url": "_framework/Dima.Core.b6xq4m8osz.pdb"
     },
     {
-      "hash": "sha256-C3u7XBTj6uPTUn7Ty832HI5FTtLqbn+b9KB6Q2pehOk=",
-      "url": "_framework/Dima.Web.1pv2kljtzl.wasm"
+      "hash": "sha256-tEllo8EZracro0j8mot2XYJPX4SpLIPRyb123JzxbN4=",
+      "url": "_framework/Dima.Web.kc3fvnxxse.wasm"
     },
     {
-      "hash": "sha256-L7CEZzo0cZ7iecjkALwjFXLQnLL1HQOs9zrUsioZ8cM=",
-      "url": "_framework/Dima.Web.p6y308ixu0.pdb"
+      "hash": "sha256-6xHwciLcVrK/7/KEriFvdBYhSin/F/vZfCOK0KwdOkY=",
+      "url": "_framework/Dima.Web.x5sew28qpi.pdb"
     },
     {
       "hash": "sha256-h2pKkq57/vS3mbEFyiqoupHb66C30OMHzjlzDqfbD40=",
@@ -822,7 +822,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.ahs9krftg4.wasm"
     },
     {
-      "hash": "sha256-3VHQauc2MnLG7EJQ8l/jr0G9EsI3niRibu224wLMiIA=",
+      "hash": "sha256-8BOeRIqk72W1K+pTrKpei+8P7FvzUDJND+Ds8zPNgZE=",
       "url": "_framework/blazor.boot.json"
     },
     {
