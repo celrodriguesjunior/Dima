@@ -1,8 +1,10 @@
 ﻿using Dima.Api.Common.Api;
 using Dima.Api.Endpoints.Categories;
 using Dima.Api.Endpoints.Identity;
+using Dima.Api.Endpoints.Reports;
 using Dima.Api.Endpoints.Transactions;
 using Dima.Api.Models;
+using Dima.Core.Requests.Reports;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
@@ -36,11 +38,20 @@ public static class Endpoint
         app.MapGroup("v1/identity")
             .WithTags("Identity")
             .MapIdentityApi<User>();
-        
+
         app.MapGroup("v1/identity")
             .WithTags("Transactions")
             .MapEndpoint<LogoutEndpoint>()
             .MapEndpoint<GetRolesEndpoint>();
+
+        app.MapGroup("v1/reports")
+            .WithTags("Report")
+            .RequireAuthorization()
+            .MapEndpoint<GetExpensesByCategoryEndpoint>()
+            .MapEndpoint<GetFinancialSummaryEndpoint>()
+            .MapEndpoint<GetIncomesAndExpensesEndpoint>()
+            .MapEndpoint<GetIncomesByCategoryEndpoint>();
+
     }
 
     private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)

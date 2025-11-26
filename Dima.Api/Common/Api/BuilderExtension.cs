@@ -45,6 +45,7 @@ public static class BuilderExtension
     {
         builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
         builder.Services.AddTransient<ITransactionHandler, TransactionsHandler>();
+        builder.Services.AddTransient<IReportHandler, ReportHandler>();
     }
 
     public static void AddCrossOrigin(this WebApplicationBuilder builder)
