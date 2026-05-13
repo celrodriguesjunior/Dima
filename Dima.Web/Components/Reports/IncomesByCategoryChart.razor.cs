@@ -35,14 +35,14 @@ public partial class IncomesByCategoryChartComponent : ComponentBase
         var response = await Handler.GetIncomesByCategoryReport(new());
         if (!response.IsSuccess || response.Data == null)
         {
-            Snackbar.Add("Não foi possível carregar o gráfico de despesas por categoria.", Severity.Error);
+            Snackbar.Add("Não foi possível carregar o gráfico de entradas por categoria.", Severity.Error);
             return;
         }
 
         foreach (var item in response.Data)
         {
             Labels.Add($"{item.Category} ({item.Incomes:C})");
-            Data.Add(-(double)item.Incomes);//gráfico só espera valor positivo, por isso precisa inverter o valor
+            Data.Add((double)item.Incomes);//gráfico só espera valor positivo, por isso precisa inverter o valor
         }
 
     }
