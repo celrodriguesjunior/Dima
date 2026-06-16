@@ -50,7 +50,7 @@ app.MapControllers();
 
 app.MapEndpoints();
 
-
+app.MapGroup("v1/identity").WithTags("Identity").MapIdentityApi<User>();
 
 
 app.Run();
