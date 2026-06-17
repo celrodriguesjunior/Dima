@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Dima.Core.Requests.Orders;
 
-namespace Dima.Core.Requests.Orders
+public class CreateOrderRequest : Request
 {
-    internal class CreateOrderRequest
-    {
-    }
+
+    public long ProductId { get; set; }
+    public long VoucherId { get; set; }
+
 }

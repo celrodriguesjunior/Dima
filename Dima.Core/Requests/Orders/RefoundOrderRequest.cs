@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Dima.Core.Requests.Orders;
 
-namespace Dima.Core.Requests.Orders
+public class RefoundOrderRequest : Request
 {
-    internal class RefoundOrderRequest
-    {
-    }
+    public long Id { get; set; }
 }
