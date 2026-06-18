@@ -17,7 +17,6 @@ public class VoucherMapping : IEntityTypeConfiguration<Voucher>
             .HasColumnType("CHAR")
             .HasMaxLength(8);
 
-
         builder.Property(v => v.Title)
             .IsRequired()
             .HasColumnType("NVARCHAR")

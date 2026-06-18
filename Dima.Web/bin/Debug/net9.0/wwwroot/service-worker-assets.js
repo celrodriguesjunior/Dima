@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "7mvbuKu4",
+  "version": "2KH8wJ7m",
   "assets": [
     {
       "hash": "sha256-kJXKqRCleT/Jk1wJUhUu24r2LAA7IWVYmdoENizE38M=",
@@ -14,20 +14,20 @@ self.assetsManifest = {
       "url": "_content/MudBlazor/MudBlazor.min.js"
     },
     {
-      "hash": "sha256-chBZFHUXHJ3di5q0IeiwRyXss9615oO40t+7vGrN6sk=",
-      "url": "_framework/Dima.Core.23e5psvee8.pdb"
+      "hash": "sha256-3wYE8kUIM7h3Q0eMvNof/bCOG6a9TtWE2SvwUpCKLOU=",
+      "url": "_framework/Dima.Core.3rxk3vypao.wasm"
     },
     {
-      "hash": "sha256-6IZi9kRCbnyS2TeO+vwX2wrLcahQylplrqCIZE34A7o=",
-      "url": "_framework/Dima.Core.gykke55uki.wasm"
+      "hash": "sha256-0UIQMcnaws9JZhyz96si+dWO+wOxxYa0XYLwXPMGoaw=",
+      "url": "_framework/Dima.Core.x42kfbgq94.pdb"
     },
     {
-      "hash": "sha256-cXv/ep/qTslCu0WhFjD3TdXzShFIhKWqj/8cW3pwtWQ=",
-      "url": "_framework/Dima.Web.1wblo935p7.wasm"
+      "hash": "sha256-DKlDYuSwiFF9GHojMZi4oY8zzMvOv0hDKDaGdgsdAvQ=",
+      "url": "_framework/Dima.Web.03im83j2km.wasm"
     },
     {
-      "hash": "sha256-3eOmr7FIcHa8/gRQvHkewEcP664TLVFB5oCJraZ4b2Y=",
-      "url": "_framework/Dima.Web.3gapbgb9t8.pdb"
+      "hash": "sha256-w7tLcq77y3fabCg7khDjEkxjjmeozwhh/sEg1IpU8Jo=",
+      "url": "_framework/Dima.Web.p1c1x0huas.pdb"
     },
     {
       "hash": "sha256-K3j153B4Qx57/sHT4gOICXyadidNa4qEUflLPz/OgCU=",
@@ -822,7 +822,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.5kidsc9cwj.wasm"
     },
     {
-      "hash": "sha256-zSj0q7rVasZgqWOok6iZCHvJvFULj1fBsNoq3QAaAiY=",
+      "hash": "sha256-/S7AmYLLj2U36ykTEUio5HiVrbTEz7y0OgWuhMcY6ns=",
       "url": "_framework/blazor.boot.json"
     },
     {
