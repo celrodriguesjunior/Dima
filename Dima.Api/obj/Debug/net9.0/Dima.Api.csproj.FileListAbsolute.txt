@@ -104,10 +104,10 @@ C:\dev\Dima\Dima.Api\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\staticwebassets.development.json
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\swae.build.ex.cache
-C:\dev\Dima\Dima.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\Dima.Api.csproj.Up2Date
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\Dima.Api.dll
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\refint\Dima.Api.dll
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\Dima.Api.pdb
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\Dima.Api.genruntimeconfig.cache
 C:\dev\Dima\Dima.Api\obj\Debug\net9.0\ref\Dima.Api.dll
+C:\dev\Dima\Dima.Api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
