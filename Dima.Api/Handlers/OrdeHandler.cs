@@ -5,6 +5,7 @@ using Dima.Core.Models;
 using Dima.Core.Requests.Orders;
 using Dima.Core.Responses;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Dima.Api.Handlers;
 
@@ -126,12 +127,29 @@ public class OrdeHandler(AppDbContext context) : IOrderHandler
         return new Response<Order?>(order, 201, $"Pedido {order.Number} criado com sucesso");
     }
 
-    public Task<PagedResponse<List<Order>?>> GetAllAsync(GetAllOrdersRequest request)
+    public async Task<PagedResponse<List<Order>?>> GetAllAsync(GetAllOrdersRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var query = context.Orders
+                .AsNoTracking()
+                .Include(x => x.Product)
+                .Include(x => x.Voucher)
+                .Where(x => x.UserId == request.UserId)
+                .OrderByDescending(x => x.CreatedAt);
+
+            var orders = await query.Skip((request.PageNumber - 1) * request.PageSize).Take(request.PageSize).ToListAsync();
+            var count = await query.CountAsync();
+
+            return new PagedResponse<List<Order>?>(orders, count, request.PageNumber, request.PageSize);
+        }
+        catch
+        {
+            return new PagedResponse<List<Order>?>(null, 500, "Falha ao consultar pedidos");
+        }
     }
 
-    public Task<Response<Order?>> GetByNumberAsync(GetOrderByNumberRequest request)
+    public async Task<Response<Order?>> GetByNumberAsync(GetOrderByNumberRequest request)
     {
         throw new NotImplementedException();
     }
@@ -167,12 +185,75 @@ public class OrdeHandler(AppDbContext context) : IOrderHandler
 
             case EOrderStatus.Refunded:
                 return new Response<Order?>(order, 400, "O pedido já foi reembolsado e não pode ser pago");
+
+            case EOrderStatus.WaitingPayment:
+                break;
+
+            default:
+                return new Response<Order?>(order, 400, "Não foi possível pagar o pedido");
         }
 
+        order.Status = EOrderStatus.Paid;
+        order.ExternalReference = request.ExternalReference;
+        order.UpdateAt = DateTime.Now;
+
+        try
+        {
+            context.Orders.Update(order);
+            await context.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            return new Response<Order?>(order, 500, "Falha ao tentar pagar o pedido");
+        }
+
+
+        return new Response<Order?>(order, 200, $"Pedido {order.Number} pago com sucesso");
     }
 
-    public Task<Response<Order?>> RefundAsync(RefoundOrderRequest request)
+    public async Task<Response<Order?>> RefundAsync(RefoundOrderRequest request)
     {
-        throw new NotImplementedException();
+        Order? order = null;
+        try
+        {
+            order = await context.Orders.FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);
+
+            if (order is null)
+                return new Response<Order?>(null, 404, "Pedido não encontrado");
+        }
+        catch (Exception e)
+        {
+            return new Response<Order?>(null, 500, "Não foi possível recuperar seu pedido");
+        }
+
+        switch (order.Status)
+        {
+            case EOrderStatus.Canceled:
+                return new Response<Order?>(order, 400, "O pedido já está cancelado e não pode ser reembolsado");
+            case EOrderStatus.Paid:
+                break;
+            case EOrderStatus.Refunded:
+                return new Response<Order?>(order, 400, "O pedido já foi reembolsado e não pode ser reembolsado novamente");
+            case EOrderStatus.WaitingPayment:
+                return new Response<Order?>(order, 400, "O pedido ainda não foi pago e não pode ser reembolsado");
+            default:
+                return new Response<Order?>(order, 400, "Não foi possível reembolsar o pedido");
+        }
+
+        order.Status = EOrderStatus.Refunded;
+        order.UpdateAt = DateTime.Now;
+
+        try
+        {
+            context.Orders.Update(order);
+            await context.SaveChangesAsync();
+        }
+        catch
+        {
+            return new Response<Order?>(order, 500, "Não foi possível reembolsar o pagamento");
+        }
+
+
+        return new Response<Order?>(order, 200, $"Pedido {order.Number} reembolsado com sucesso");
     }
 }
