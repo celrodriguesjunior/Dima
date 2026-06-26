@@ -6,6 +6,7 @@ using Dima.Core.Requests.Orders;
 using Dima.Core.Responses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Dima.Api.Handlers;
 
@@ -151,7 +152,22 @@ public class OrdeHandler(AppDbContext context) : IOrderHandler
 
     public async Task<Response<Order?>> GetByNumberAsync(GetOrderByNumberRequest request)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var order = await context.Orders.AsNoTracking()
+                .Include(x => x.Product)
+                .Include(x => x.Voucher)
+                .FirstOrDefaultAsync(x => x.Number == request.Number && x.UserId == request.UserId);
+            
+            if (order is null)
+                return new Response<Order?>(null, 404, "Pedido não encontrado");
+
+            return new Response<Order?>(order, 200, "Pedido encontrado com sucesso");
+        }
+        catch
+        {
+            return new Response<Order?>(null, 500, "Falha ao consultar pedido");
+        }
     }
 
     public async Task<Response<Order?>> PayAsync(PayOrderRequest request)
