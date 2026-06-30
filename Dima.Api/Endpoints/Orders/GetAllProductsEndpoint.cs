@@ -8,14 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dima.Api.Endpoints.Orders;
 
-public class GetAllProducts : IEndpoint
+public class GetAllProductsEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
     => app.MapGet("/", HandleAsync)
        .WithName("Orders: Get all products")
        .WithSummary("Obtém todos os produtos")
        .WithDescription("Obtém todos os produtos")
-       .WithOrder(4)
+       .WithOrder(1)
        .Produces<PagedResponse<List<Product>?>>();
 
     private static async Task<IResult> HandleAsync(IProductHandler handler,
