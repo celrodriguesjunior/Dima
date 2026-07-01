@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 
 namespace Dima.Api.Handlers;
 
-public class OrdeHandler(AppDbContext context) : IOrderHandler
+public class OrderHandler(AppDbContext context) : IOrderHandler
 {
     public async Task<Response<Order?>> CancelAsync(CancelOrderRequest request)
     {
@@ -158,7 +158,7 @@ public class OrdeHandler(AppDbContext context) : IOrderHandler
                 .Include(x => x.Product)
                 .Include(x => x.Voucher)
                 .FirstOrDefaultAsync(x => x.Number == request.Number && x.UserId == request.UserId);
-            
+
             if (order is null)
                 return new Response<Order?>(null, 404, "Pedido não encontrado");
 
@@ -232,7 +232,10 @@ public class OrdeHandler(AppDbContext context) : IOrderHandler
         Order? order = null;
         try
         {
-            order = await context.Orders.FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);
+            order = await context.Orders
+                .Include(x => x.Product)
+                .Include(x => x.Voucher)
+                .FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);
 
             if (order is null)
                 return new Response<Order?>(null, 404, "Pedido não encontrado");
