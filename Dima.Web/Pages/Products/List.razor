@@ -1,0 +1,18 @@
+﻿@page "/premium"
+@using MudBlazor
+@inherits ListProductsPage
+
+<MudContainer Class="mt-16">
+    <MudText Typo="Typo.h3" Align="Align.Center" GutterBottom="true">Premium</MudText>
+    <MudText Align="Align.Center">
+        Tenha acesso ilimitado a aplicações, incluindo transações e categorias ilimitadas.
+    </MudText>
+    <MudGrid Class="mt-8 justify-center">
+        @foreach (var product in Products)
+        {
+            <MudItem xs="12" sm="6" md="4" >
+                @product.Title
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
