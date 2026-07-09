@@ -108,6 +108,40 @@ public partial class CheckoutPage : ComponentBase
 
     }
 
+
+    protected async Task OnValidSubmitAsync()
+    {
+        IsBusy = true;
+        try
+        {
+            var request = new CreateOrderRequest
+            {
+                ProductId = Product!.Id,
+                VoucherId = Voucher?.Id ?? 0,
+            };
+
+            var result = await OrderHandler.CreateAsync(request);
+
+            if (result.IsSuccess)
+            {
+                NavigationManager.NavigateTo($"/pedidos/{result.Data!.Number}");
+            }
+            else
+            {
+                Snackbar.Add(result.Message, Severity.Error);
+            }
+
+        }
+        catch (Exception e)
+        {
+            Snackbar.Add(e.Message, Severity.Error);
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+
     #endregion
 
     private static char AllUpperCase(char c) => c.ToString().ToUpperInvariant()[0];

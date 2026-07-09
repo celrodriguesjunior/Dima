@@ -14,9 +14,19 @@
                         <MudText>@Product?.Title</MudText>
                         <MudText Inline="true" Class="ml-auto">@Product?.Price.ToString("C")</MudText>
                     </MudListItem>
-                    VOUCHER
+                    <MudListItem Icon="@(Voucher is null ? Icons.Material.Filled.Discount : Icons.Material.Filled.CheckCircle)">
+                        <MudTextField T="string" Disabled="@(Voucher is not null)" Placeholder="Cupom de Desconto" @bind-Value="VoucherNumber" Mask="Mask" Adornment="Adornment.End" AdornmentIcon="Icons.Material.Filled.FactCheck" OnAdornmentClick="@(() => { })" />
+                    </MudListItem>
+                    <MudListItem Icon="Icons.Material.Filled.MoneyOff">
+                        <div class="d-flex">
+                            <MudText>Desconto:</MudText>
+                            <MudText Class="ml-auto">
+                                @Voucher?.Amount.ToString("C")
+                            </MudText>
+                        </div>
+                    </MudListItem>
                     <MudDivider />
-                    <div class="mt-auto">
+                    <div class="mt-auto pa-4">
                         <MudText>Total: </MudText>
                         <MudText Class="ml-auto">
                             <strong>
@@ -27,7 +37,7 @@
                 </MudList>
             </MudPaper>
 
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!IsValid)" Size="Size.Large" Class="mt-6" FullWidth="true">Finalizar Pedido</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!IsValid)" Size="Size.Large" Class="mt-6" FullWidth="true" @onclick="OnValidSubmitAsync">Finalizar Pedido</MudButton>
 
         </MudItem>
 
