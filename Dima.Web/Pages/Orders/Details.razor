@@ -1,0 +1,43 @@
+﻿@page "/pedidos/{number}"
+@using MudBlazor
+@inherits DetailsPage
+
+<h1>Detalhes do Pedido</h1>
+<br>
+
+
+
+@if (Order is not null)
+{
+    <h4>Numero do Pedido</h4>
+    <p>@Order.Number</p>
+    <br />
+    <h4>Data do Pedido</h4>
+    <p>@Order.CreatedAt.ToString("dd/MM/yyyy")</p>
+    <br />
+    <h4>Última Atualização</h4>
+    <p>@Order.UpdateAt.ToString("dd/MM/yyyy")</p>
+    <br />
+    <h4>Produto</h4>
+    <p>@Order.Product.Title</p>
+    <br />
+    <h4>Valor do Produto</h4>
+    <p>@Order.Product.Price.ToString("C")</p>
+    <br />
+    <h4>Desconto</h4>
+    <p>@(Order.Voucher is null ? "Não Aplicado" : Order.Voucher.Amount.ToString("P"))</p>
+    <br />
+    <h4>Situação</h4>
+    <OrderStatus Status="@Order.Status" />
+    <br />
+    <br />
+    <br />
+    <OrderAction Order="@Order" />
+
+}
+else
+{
+    <MudSkeleton Animation="Animation.Wave" />
+    <MudSkeleton Animation="Animation.Wave" />
+    <MudSkeleton Animation="Animation.Wave" />
+}
