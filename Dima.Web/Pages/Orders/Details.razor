@@ -32,7 +32,9 @@
     <br />
     <br />
     <br />
-    <OrderAction Order="@Order" />
+    <CascadingValue Value="this">
+        <OrderAction Order="@Order" />
+    </CascadingValue>
 
 }
 else

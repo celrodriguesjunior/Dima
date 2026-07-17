@@ -47,6 +47,16 @@ public partial class DetailsPage : ComponentBase
     }
     #endregion
 
+    #region Methods
+
+    public void RefreshState(Order order)
+    {
+        Order = order;
+        StateHasChanged();
+    }
+
+    #endregion
+
 }
 
 
